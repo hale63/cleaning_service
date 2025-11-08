@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleaning Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .play-triangle {
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 12px solid white;
+      margin-left: 2px;
+    }
+    .zigzag-top {
+      background: linear-gradient(135deg, #021154 25%, transparent 25%),
+                  linear-gradient(225deg, #05155f 25%, transparent 25%);
+      background-size: 30px 30px;
+      background-position: 0 0;
+      height: 30px;
+    }
+    .zigzag-bottom {
+      background: 
+        linear-gradient(135deg, transparent 25%, #eff0f3 25%) -15px 0,
+        linear-gradient(225deg, transparent 25%, #0b1a4f 25%) -15px 0;
+      background-size: 30px 30px;
+      height: 15px;
+    }
+  </style>
+</head>
+<body class="relative bg-gray-50">
+
+  <!-- ✅ Transparent Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-transparent text-white transition-all duration-500 ease-in-out">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="text-4xl font-bold text-white">Meresh Groep</a>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden text-2xl md:flex space-x-8 font-medium">
+        <li><a href="#" class="hover:text-yellow-500 transition">Home</a></li>
+        <li><a href="#" class="hover:text-yellow-500 transition">About</a></li>
+        <li><a href="#" class="hover:text-yellow-500 transition">Services</a></li>
+        <li><a href="#" class="hover:text-yellow-500 transition">Prices</a></li>
+        <li><a href="#" class="hover:text-yellow-500 transition">Contact</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="#" class="hidden md:inline-block bg-yellow-500 px-4 py-2 text-xl rounded-lg font-semibold hover:bg-blue-500 transition">contact us</a>
+
+      <!-- Mobile Button -->
+      <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-blue-900/90 backdrop-blur-sm md:hidden">
+      <ul class="flex flex-col items-center space-y-4 py-6 font-medium">
+        <li><a href="#" class="hover:text-yellow-500">Home</a></li>
+        <li><a href="#" class="hover:text-yellow-500">About</a></li>
+        <li><a href="#" class="hover:text-yellow-500">Services</a></li>
+        <li><a href="#" class="hover:text-yellow-500">Prices</a></li>
+        <li><a href="#" class="hover:text-yellow-500">Contact</a></li>
+        <li><a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Get a Quote</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ✅ Hero Section -->
+  <div class="relative min-h-screen w-full overflow-hidden" id="hero">
+    <!-- Background Image -->
+    <div id="slideImage"
+         class="absolute inset-0 bg-cover bg-center transition-all duration-1000"
+         style="background-image: url('assets/slide1.jpg');">
+    </div>
+
+    <!-- Blurred Color Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-white/40 to-blue-900/100 backdrop-blur-sm"></div>
+
+    <!-- ✅ Content (Left Aligned) -->
+    <div class="relative z-10 flex items-center min-h-screen">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl ml-auto text-right">
+          <!-- Title -->
+          <h1 id="slideTitle" class="mb-6 text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
+            Your Hygienic Home Our Responsibility
+          </h1>
+
+          <!-- Description -->
+          <p id="slideDescription" class="mb-10 text-base sm:text-lg text-white/90 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ut labore et dolore magna aliqua.
+          </p>
+
+          <!-- Button -->
+          <div class="flex gap-4 justify-end">
+            <button class="rounded-lg bg-yellow-500 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-yellow-600 hover:shadow-lg">
+              Know More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="py-16 px-6 lg:px-20 bg-white">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left Images -->
+      <div class="relative">
+        <div class="w-3/4">
+          <img src="assets/about1.png" 
+               alt="Cleaner 1" 
+               class="rounded-lg shadow-lg object-cover">
+        </div>
+        <div class="absolute bottom-[-80px] left-[150px] w-2/6 bg-white rounded-lg shadow-lg">
+          <img src="assets/about2.png" 
+               alt="Cleaner 2" 
+               class="rounded-lg object-cover p-3">
+        </div>
+
+        <!-- Arrow curve -->
+        <div class="absolute -bottom-48 left-48 w-24 text-blue-500">
+          <svg width="100" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 95 C50 20, 150 20, 195 95" stroke="#1E3A8A" stroke-width="2" fill="transparent"/>
+            <path d="M190 90 L195 95 L190 100" stroke="#1E3A8A" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- Years of Experience -->
+        <div class="absolute -bottom-48 right-72">
+          <h2 class="text-5xl font-bold text-blue-700">25+</h2>
+          <p class="text-gray-700 font-medium">Years Of Experience</p>
+        </div>
+      </div>
+
+      <!-- Right Text -->
+      <div>
+        <h3 class="text-blue-600 text-lg font-semibold mb-2 flex items-center gap-2">
+          <span class="w-8 h-[2px] bg-blue-600"></span> About Us
+        </h3>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-blue-900 leading-tight mb-4">
+          Leading, trailing, and multiple<br> spaces within the text.
+        </h2>
+        <p class="text-gray-700 mb-8">
+          Please provide the specific text you need cleaned, and I can help you apply these steps to your heading and body text. 
+          We are a Company dedicated to providing excellent services. Our team is highly skilled and experienced.
+        </p>
+
+        <!-- Two Main Points -->
+        <div class="grid sm:grid-cols-2 gap-6 mb-6">
+          <div class="flex items-start gap-3">
+            <div class="text-blue-700 mt-1">✔️</div>
+            <div>
+              <h4 class="font-bold text-blue-900">Correct grammar and spelling</h4>
+              <p class="text-gray-700 text-sm">Ensure proper sentence structure, spelling, and grammar. Remove leading,</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <div class="text-blue-700 mt-1">✔️</div>
+            <div>
+              <h4 class="font-bold text-blue-900">Correct capitalization</h4>
+              <p class="text-gray-700 text-sm">Ensure proper use of uppercase and lowercase letters.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-gray-300 mb-6"/>
+
+        <!-- Bullet List -->
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-start gap-3">
+            <span class="text-blue-700 mt-1">✔️</span>
+            Ensure proper use of uppercase and lowercase letters.
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-700 mt-1">✔️</span>
+            Remove leading, trailing, and multiple spaces within the text.
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-700 mt-1">✔️</span>
+            Get rid of unnecessary special characters or symbols.
+          </li>
+        </ul>
+
+        <!-- Buttons and Contact -->
+        <div class="flex flex-col sm:flex-row items-center gap-6 mt-10">
+          <button class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-lg shadow-md transition">
+            More About Us
+          </button>
+          <div class="flex items-center gap-3">
+            <div class="bg-blue-100 p-3 rounded-full">
+              📞
+            </div>
+            <div>
+              <p class="text-gray-700 text-sm">Call For Help:</p>
+              <p class="text-blue-700 font-semibold">(+055) 6789 9876</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ NEW APPOINTMENT & SERVICES SECTION -->
+  <!-- Zigzag Top Border -->
+  <div class="zigzag-top"></div>
+  
+  <section class="relative bg-blue-950 text-white py-16 px-4 overflow-hidden">
+    <!-- Decorative Circles -->
+    <div class="absolute top-20 left-10 w-32 h-32 border-2 border-blue-800 rounded-full opacity-30"></div>
+    <div class="absolute top-40 right-20 w-48 h-48 border-2 border-blue-800 rounded-full opacity-20"></div>
+    <div class="absolute bottom-20 left-1/4 w-40 h-40 border-2 border-blue-800 rounded-full opacity-25"></div>
+    <div class="absolute bottom-40 right-1/3 w-56 h-56 border-2 border-blue-800 rounded-full opacity-15"></div>
+    <div class="absolute top-1/3 left-20 w-64 h-64 border-2 border-blue-800 rounded-full opacity-15"></div>
+    <div class="absolute bottom-1/4 right-10 w-48 h-48 border-2 border-blue-800 rounded-full opacity-20"></div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+      <!-- Services Section -->
+      <div class="text-center mb-12">
+        <p class="text-yellow-400 text-sm font-semibold mb-2 tracking-wider">OUR SERVICES</p>
+        <h3 class="text-4xl font-bold">Professional Cleaning Services</h3>
+      </div>
+
+      <!-- Services Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <!-- Card 1 -->
+        <div class="bg-blue-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="relative h-48">
+            <img
+              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop"
+              alt="House Kitchen Cleaning"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 bg-white rounded-full p-3">
+              <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-4">House Kitchen Cleaning</h4>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">House Floor Cleaning</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Roof Clean & Wash</span>
+            </div>
+            <button class="mt-4 flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+              View Details 
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-blue-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="relative h-48">
+            <img
+              src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?w=400&h=300&fit=crop"
+              alt="Office Floor Cleaning"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 bg-white rounded-full p-3">
+              <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-4">Office Floor Cleaning</h4>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Office Floor Cleaning</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Window Cleaning</span>
+            </div>
+            <button class="mt-4 flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+              View Details 
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-blue-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="relative h-48">
+            <img
+              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop"
+              alt="Commercial Cleaning"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 bg-white rounded-full p-3">
+              <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-4">Commercial Cleaning</h4>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Deep Cleaning</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Sanitization</span>
+            </div>
+            <button class="mt-4 flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+              View Details 
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 4 -->
+        <div class="bg-blue-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="relative h-48">
+            <img
+              src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400&h=300&fit=crop"
+              alt="Carpet Cleaning"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 bg-white rounded-full p-3">
+              <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-4">Carpet Cleaning</h4>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Stain Removal</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Deep Cleaning</span>
+            </div>
+            <button class="mt-4 flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+              View Details 
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="bg-blue-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="relative h-48">
+            <img
+              src="https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400&h=300&fit=crop"
+              alt="Window Cleaning"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 bg-white rounded-full p-3">
+              <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-4">Window Cleaning</h4>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Interior Windows</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Exterior Windows</span>
+            </div>
+            <button class="mt-4 flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+              View Details 
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="bg-blue-900 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="relative h-48">
+            <img
+              src="https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=400&h=300&fit=crop"
+              alt="Move In/Out Cleaning"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 bg-white rounded-full p-3">
+              <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-4">Move In/Out Cleaning</h4>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Deep Cleaning</span>
+            </div>
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-gray-300">Appliance Cleaning</span>
+            </div>
+            <button class="mt-4 flex items-center gap-2 text-yellow-400 hover:text-yellow-300 transition-colors font-semibold">
+              View Details 
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zigzag Bottom Border -->
+  <div class="zigzag-bottom"></div>
+
+  <!-- Contact Section -->
+  <div class="h-32"></div>
+  <section class="bg-blue-950">
+    <div class="max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:py-20 lg:px-8">
+      <div class="max-w-2xl lg:max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-extrabold text-yellow-500">Visit Our Location</h2>
+        <p class="mt-4 text-lg text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div class="mt-16 lg:mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11672.945750644447!2d-122.42107853750231!3d37.7730507907087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858070cc2fbd55%3A0xa71491d736f62d5c!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1619524992238!5m2!1sen!2sus"
+              width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <div>
+            <div class="max-w-full mx-auto rounded-lg overflow-hidden">
+              <div class="px-6 py-4">
+                <h3 class="text-lg font-medium text-yellow-500">Our Address</h3>
+                <p class="mt-1 text-white">123 Main St, San Francisco, CA 94105</p>
+              </div>
+              <div class="border-t border-gray-200 px-6 py-4">
+                <h3 class="text-lg font-medium text-yellow-500">Hours</h3>
+                <p class="mt-1 text-white">Monday - Friday: 9am - 5pm</p>
+                <p class="mt-1 text-white">Saturday: 10am - 4pm</p>
+                <p class="mt-1 text-white">Sunday: Closed</p>
+              </div>
+              <div class="border-t border-gray-200 px-6 py-4">
+                <h3 class="text-lg font-medium text-yellow-500">Contact</h3>
+                <p class="mt-1 text-white">Email: info@example.com</p>
+                <p class="mt-1 text-white">Phone: +1 23494 34993</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="h-32 bg-white"></div>
+
+  <!-- Footer Section -->
+  <footer class="bg-blue-950 text-white w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Meresh Groep</h3>
+          <p class="text-gray-300 mb-4">
+            Providing professional cleaning services for over 25 years. Your hygiene is our responsibility.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-yellow-500 transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-yellow-500 transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-yellow-500 transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.042-3.441.219-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-yellow-500">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Home</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">About Us</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Services</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Pricing</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-yellow-500">Our Services</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white transition">House Cleaning</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Office Cleaning</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Commercial Cleaning</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Deep Cleaning</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Move In/Out Cleaning</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-yellow-500">Contact Info</h4>
+          <div class="space-y-3">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-yellow-500 mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-gray-300">123 Cleaning Street, San Francisco, CA 94105</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-5 h-5 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span class="text-gray-300">+1 (555) 123-4567</span>
+            </div>
+            <div class="flex items-center">
+              <svg class="w-5 h-5 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span class="text-gray-300">info@mereshgroep.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">&copy; 2023 Meresh Groep. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition">Terms of Service</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm transition">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS File -->
+  <script src="js.js"></script>
+
+</body>
+</html>
