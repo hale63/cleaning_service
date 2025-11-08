@@ -1,98 +1,67 @@
 
-'use strict';
-
-// ---------------------- Navbar Scroll Effect ----------------------
-const navbar = document.querySelector("nav");
-window.addEventListener("scroll", () => {
-  if (!navbar) return;
-  if (window.scrollY > 50) {
-    navbar.classList.add("bg-blue-950", "shadow-lg");
-    navbar.classList.remove("bg-transparent");
-  } else {
-    navbar.classList.add("bg-transparent");
-    navbar.classList.remove("bg-blue-950", "shadow-lg");
-  }
-});
-
-// ---------------------- Mobile Menu Toggle ----------------------
-document.addEventListener('DOMContentLoaded', () => {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
+// Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
       mobileMenu.classList.toggle('hidden');
     });
-  }
-});
 
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('nav');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    });
 
-// ---------------------- Slide Show ----------------------
-let currentSlide = 0;
-const slides = [
-  {
-    title: "Your Hygienic Home Our Responsibility",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "assets/slide1.jpg",
-  },
-  {
-    title: "Professional Cleaning Services",
-    description:
-      "Experience top-quality cleaning solutions tailored to your needs. Our expert team ensures your home sparkles with cleanliness.",
-    image: "assets/slide2.jpg",
-  },
-  {
-    title: "Trusted by Thousands",
-    description:
-      "Join our satisfied customers who trust us with their homes. We deliver exceptional results every time with attention to detail.",
-    image: "assets/slide3.jpg",
-  },
-];
+    // Scroll animations
+    function checkScroll() {
+      const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    }
 
-function updateSlide() {
-  const titleEl = document.getElementById("slideTitle");
-  const descEl = document.getElementById("slideDescription");
-  const imageEl = document.getElementById("slideImage");
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
 
-  if (titleEl) titleEl.textContent = slides[currentSlide].title;
-  if (descEl) descEl.textContent = slides[currentSlide].description;
-  if (imageEl) imageEl.style.backgroundImage = `url('${slides[currentSlide].image}')`;
+    // Hero image slideshow
+    const slides = [
+      {
+        image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=800&fit=crop',
+        title: 'Your Hygienic Home Our Responsibility',
+        description: 'Professional cleaning services that transform your space. We use eco-friendly products and proven techniques to ensure a spotless environment.'
+      },
+      {
+        image: 'assets/w3.jpg',
+        title: 'Expert Cleaning Services',
+        description: 'Our trained professionals deliver exceptional results for both residential and commercial properties.'
+      },
+      {
+        image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1200&h=800&fit=crop',
+        title: 'Eco-Friendly Cleaning Solutions',
+        description: 'We prioritize your health and the environment with our green cleaning products and methods.'
+      }
+    ];
 
-  slides.forEach((_, i) => {
-    const indicator = document.getElementById(`indicator${i}`);
-    if (!indicator) return;
-    indicator.className =
-      i === currentSlide
-        ? "h-3 w-8 rounded-full bg-white transition-all duration-300"
-        : "h-3 w-3 rounded-full bg-white/50 transition-all duration-300 hover:bg-white/70";
-  });
-}
+    let currentSlide = 0;
+    const slideImage = document.getElementById('slideImage');
+    const slideTitle = document.getElementById('slideTitle');
+    const slideDescription = document.getElementById('slideDescription');
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  updateSlide();
-}
+    function changeSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      slideImage.style.backgroundImage = `url('${slides[currentSlide].image}')`;
+      slideTitle.textContent = slides[currentSlide].title;
+      slideDescription.textContent = slides[currentSlide].description;
+    }
 
-function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  updateSlide();
-}
-
-function goToSlide(index) {
-  if (typeof index !== "number" || index < 0 || index >= slides.length) return;
-  currentSlide = index;
-  updateSlide();
-}
-
-// expose to HTML onclick
-window.nextSlide = nextSlide;
-window.prevSlide = prevSlide;
-window.goToSlide = goToSlide;
-
-// Auto-slide every 5s
-document.addEventListener('DOMContentLoaded', () => {
-  updateSlide();
-  setInterval(nextSlide, 5000);
-});
-
+    // Change slide every 5 seconds
+    setInterval(changeSlide, 5000);
