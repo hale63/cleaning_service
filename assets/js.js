@@ -35,18 +35,18 @@
     const slides = [
       {
         image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&h=800&fit=crop',
-        title: 'Your Hygienic Home Our Responsibility',
-        description: 'Professional cleaning services that transform your space. We use eco-friendly products and proven techniques to ensure a spotless environment.'
+        title: 'Uw Hygiënisch Huis Onze Zorg',
+        description: 'PProfessionele schoonmaakdiensten die uw ruimte transformeren. We gebruiken milieuvriendelijke producten en beproefde technieken voor een vlekkeloze omgeving.'
       },
       {
         image: 'assets/w3.jpg',
-        title: 'Expert Cleaning Services',
-        description: 'Our trained professionals deliver exceptional results for both residential and commercial properties.'
+        title: 'Expert Schoonmaakdiensten',
+        description: 'Onze getrainde specialisten leveren uitstekende resultaten voor zowel woningen als bedrijven.'
       },
       {
         image: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1200&h=800&fit=crop',
-        title: 'Eco-Friendly Cleaning Solutions',
-        description: 'We prioritize your health and the environment with our green cleaning products and methods.'
+        title: 'Milieuvriendelijke Schoonmaakoplossingen',
+        description: 'We geven prioriteit aan uw gezondheid en het milieu met onze groene schoonmaakproducten en methoden.'
       }
     ];
 
